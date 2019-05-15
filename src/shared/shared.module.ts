@@ -9,8 +9,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     MaterialThemeModule,
-    RouterModule
-  ],
+    RouterModule,],
   exports: [AppToolbarComponent,]
 })
 export class SharedModule { }
