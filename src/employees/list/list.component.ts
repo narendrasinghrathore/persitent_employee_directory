@@ -1,7 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { EmployeeCrudService } from '../services/employee-crud.service';
+import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 
-import { take } from 'rxjs/operators';
+import { Employee } from '../../models/employee';
 
 @Component({
   selector: 'app-employee-list',
@@ -11,14 +10,13 @@ import { take } from 'rxjs/operators';
 })
 export class ListComponent implements OnInit {
 
-  constructor(private service: EmployeeCrudService) { }
+  @Input()
+  list: Employee[] = [];
+
+  constructor() { }
 
   ngOnInit() {
-    this.service.getAll().pipe(take(1)).subscribe(
-      data => {
-        console.log(data);
-      }
-    );
+    console.log(this.list);
   }
 
 }

@@ -1,3 +1,13 @@
 <p>
-  list works!
+    List of all employees
 </p>
+<mat-list>
+    <mat-list-item *ngFor="let employee of list">
+      <mat-icon matListIcon>folder</mat-icon>
+      <h3 matLine> {{employee.fullname}} </h3>
+      <p matLine>
+        <span> {{employee.lastname}} </span>
+        <span class="demo-2"> -- {{employee.country}} </span>
+      </p>
+    </mat-list-item>
+</mat-list>
