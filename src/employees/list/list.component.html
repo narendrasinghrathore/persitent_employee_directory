@@ -1,13 +1,11 @@
-<p>
-    List of all employees
-</p>
 <mat-list>
-    <mat-list-item *ngFor="let employee of list">
-      <mat-icon matListIcon>folder</mat-icon>
-      <h3 matLine> {{employee.fullname}} </h3>
-      <p matLine>
-        <span> {{employee.lastname}} </span>
-        <span class="demo-2"> -- {{employee.country}} </span>
-      </p>
-    </mat-list-item>
+  <h3 mat-subheader>List of all employees</h3>
+  <mat-list-item *ngFor="let employee of list">
+    <h4 mat-line>{{employee.firstname}}</h4>
+    <span class="spacer"></span>
+    <span>
+      <button mat-button> <img src="assets/icons/baseline-navigate_next-24px.svg"></button>
+    </span>
+    <mat-divider></mat-divider>
+  </mat-list-item>
 </mat-list>

@@ -3,6 +3,7 @@ import { EmployeeCrudService } from '../services/employee-crud.service';
 
 import { take } from 'rxjs/operators';
 import { Employee } from 'src/models/employee';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-employee-home',
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   title = 'Employee List';
 
-  employeeList: Employee[] = [];
+  $employeeList: BehaviorSubject<Employee[]> = new BehaviorSubject([]);
 
   constructor(private service: EmployeeCrudService) { }
 
@@ -25,7 +26,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.service.getAll().pipe(take(1)).subscribe(
       data => {
-        this.employeeList = [...data];
+        this.$employeeList.next(data);
       }
     );
   }

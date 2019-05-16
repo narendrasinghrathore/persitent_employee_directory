@@ -1,2 +1,9 @@
-<app-app-toolbar title="Employee List" navigateBack="/"></app-app-toolbar>
-<app-employee-list [list]="employeeList"></app-employee-list>
+<app-shared-toolbar title="Employee List" navigateBack="/"></app-shared-toolbar>
+<ng-container *ngIf="$employeeList | async as list; else nodata">
+    <app-employee-list [list]="list"></app-employee-list>
+</ng-container>
+<ng-template #nodata>
+    <p>
+        No data found
+    </p>
+</ng-template>

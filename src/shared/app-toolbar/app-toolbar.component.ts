@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-app-toolbar',
+  selector: 'app-shared-toolbar',
   templateUrl: './app-toolbar.component.html',
   styleUrls: ['./app-toolbar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
