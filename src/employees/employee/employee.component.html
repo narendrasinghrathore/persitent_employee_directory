@@ -1,0 +1,42 @@
+<app-shared-toolbar [title]="header" navigateBack="../"></app-shared-toolbar>
+<div>
+  <header class="header">
+    <span>{{title}}</span>
+    <span class="spacer"></span>
+    <span>
+      <button mat-button color="primary">Flip to Resume</button>
+    </span>
+  </header>
+  <section>
+    <mat-divider></mat-divider>
+    <div>
+      <label for="firstname">First Name:</label>
+      <span id="firstname">{{employee?.firstname}}</span>
+    </div>
+    <div>
+      <label for="lastname">Last Name:</label>
+      <span id="lastname">{{employee?.lastname}}</span>
+    </div>
+    <div>
+      <label for="street">Address:</label>
+      <span id="street">{{employee?.address?.street}}</span>
+    </div>
+    <div>
+      <label for="city">City:</label>
+      <span id="city">{{employee?.address?.city}}</span>
+    </div>
+    <div>
+      <label for="postal">Postal Code:</label>
+      <span id="postal">{{employee?.address?.zipcode}}</span>
+    </div>
+    <div>
+      <label for="phone">Phone(Home):</label>
+      <span id="phone">{{employee?.phone}}</span>
+    </div>
+    <div>
+      <label for="country">Country:</label>
+      <span id="country">{{employee?.country}}</span>
+    </div>
+    <mat-divider></mat-divider>
+  </section>
+</div>

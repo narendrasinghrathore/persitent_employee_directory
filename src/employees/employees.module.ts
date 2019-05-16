@@ -7,6 +7,8 @@ import { SharedModule } from '../shared/shared.module';
 import { EmployeeCrudService } from './services/employee-crud.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ListComponent } from './list/list.component';
+import { EmployeeComponent } from './employee/employee.component';
+import { EmployeeHttpService } from './services/employee-http.service';
 
 /**
  * Theme import
@@ -14,16 +16,19 @@ import { ListComponent } from './list/list.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, ListComponent],
+  declarations: [HomeComponent, ListComponent, EmployeeComponent],
   imports: [
     CommonModule,
     HttpClientModule,
     RouterModule.forChild([
-      { path: '', component: HomeComponent, pathMatch: 'full' }
+      {
+        path: '', component: HomeComponent, pathMatch: 'full',
+      },
+      { path: ':id', component: EmployeeComponent, pathMatch: 'full', }
     ]),
     MaterialThemeModule,
     SharedModule
   ],
-  providers: [EmployeeCrudService]
+  providers: [EmployeeCrudService, EmployeeHttpService]
 })
 export class EmployeesModule { }

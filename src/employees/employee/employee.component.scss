@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  margin: 10px;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+
+section {
+  div {
+    margin: 30px;
+
+    label{
+      font-weight: bold;
+    }
+
+    span{
+      padding-left: 5px;
+    }
+  }
+}
