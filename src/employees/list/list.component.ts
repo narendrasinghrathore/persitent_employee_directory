@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 
 import { Employee } from '../../models/employee';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-employee-list',
@@ -13,8 +14,14 @@ export class ListComponent implements OnInit {
   @Input()
   list: Employee[] = [];
 
-  constructor() { }
+  selected: number;
 
-  ngOnInit() { }
+  constructor(private route: ActivatedRoute) { }
+
+  ngOnInit() {
+    this.route.paramMap.subscribe(d => {
+     this.selected = +d.get('id');
+    });
+  }
 
 }

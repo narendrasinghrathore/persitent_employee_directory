@@ -12,7 +12,7 @@ export class AppToolbarComponent implements OnInit {
   title: string;
 
   @Input()
-  navigateBack: string;
+  navigateBack: [];
 
   constructor() { }
 

@@ -1,1 +1,7 @@
-<app-shared-toolbar [title]="header" [navigateBack]="previousUrl"></app-shared-toolbar>
+<app-shared-toolbar [title]="header" [navigateBack]="[previousUrl]"></app-shared-toolbar>
+<mat-tab-group>
+    <mat-tab label="Info"> Information of {{fullname}} </mat-tab>
+    <mat-tab label="Projects"> Projects of {{fullname}}</mat-tab>
+    <mat-tab label="Hobbies"> Hobbies of {{fullname}}</mat-tab>
+    <mat-tab label="Notes"> Notes of {{fullname}}</mat-tab>
+  </mat-tab-group>

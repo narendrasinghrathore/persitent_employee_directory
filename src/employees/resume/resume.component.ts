@@ -17,6 +17,8 @@ export class ResumeComponent implements OnInit {
 
   previousUrl: string;
 
+  fullname: string;
+
   constructor(private route: ActivatedRoute) {
     this.getEmployeeData(route);
   }
@@ -27,7 +29,8 @@ export class ResumeComponent implements OnInit {
         const emp = data.employee['data'];
         this.previousUrl = data.employee['url'];
         this.employee = emp;
-        this.header = `Resume of ${this.employee.firstname} ${this.employee.lastname}`;
+        this.fullname = `${this.employee.firstname} ${this.employee.lastname}`
+        this.header = `Resume of ${this.fullname}`;
       });
   }
 
