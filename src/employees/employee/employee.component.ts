@@ -1,8 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { take } from 'rxjs/operators';
 import { EmployeeCrudService } from '../services/employee-crud.service';
-import { Employee } from 'src/models/employee';
+import { Employee } from '../../models/employee';
 
 @Component({
   selector: 'app-employee',
@@ -16,17 +15,18 @@ export class EmployeeComponent implements OnInit {
   header: string;
   employee: Employee;
 
-  constructor(private route: ActivatedRoute, private service: EmployeeCrudService) {
-    route.paramMap.pipe(take(1)).subscribe(data => {
-      const id = +data.get('id');
-      this.title = `Employee ID: ${id}`;
-      this.service.getEmployeeById(id).subscribe(e => {
-        this.employee = e;
-        if (this.employee !== null) {
-          this.header = `Employee Details of ${this.employee.firstname} ${this.employee.lastname}`;
-        }
+  constructor(private route: ActivatedRoute) {
+    this.getEmployeeData(route);
+  }
+
+  getEmployeeData(route: ActivatedRoute) {
+    route.data
+      .subscribe((data: { employee: Employee }) => {
+        const emp = data.employee['data'];;
+        this.employee = emp;
+        this.title = `Employee ID: ${emp.id}`;
+        this.header = `Employee Details of ${emp.firstname} ${emp.lastname}`;
       });
-    });
   }
 
   ngOnInit() {

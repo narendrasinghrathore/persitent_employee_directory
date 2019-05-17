@@ -4,7 +4,7 @@
     <span>{{title}}</span>
     <span class="spacer"></span>
     <span>
-      <button mat-button color="primary">Flip to Resume</button>
+      <button mat-button color="primary" [routerLink]="['/employees/resume', employee?.id]">Flip to Resume</button>
     </span>
   </header>
   <section>

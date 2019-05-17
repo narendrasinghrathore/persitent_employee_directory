@@ -14,7 +14,6 @@ import { AppComponent } from './app.component';
  * App store
  */
 import { Store } from 'store';
-
 /**
  * Feature modules import
  */
@@ -28,7 +27,7 @@ import { Store } from 'store';
     BrowserAnimationsModule,
     AppRoutingModule,
   ],
-  providers: [Store],
+  providers: [Store,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

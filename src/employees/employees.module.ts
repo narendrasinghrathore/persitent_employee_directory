@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ListComponent } from './list/list.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeHttpService } from './services/employee-http.service';
+import { ResumeComponent } from './resume/resume.component';
+import { EmployeeResolverService } from './services/employee-resolver.service';
 
 /**
  * Theme import
@@ -16,7 +18,7 @@ import { EmployeeHttpService } from './services/employee-http.service';
 
 
 @NgModule({
-  declarations: [HomeComponent, ListComponent, EmployeeComponent],
+  declarations: [HomeComponent, ListComponent, EmployeeComponent, ResumeComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -24,11 +26,22 @@ import { EmployeeHttpService } from './services/employee-http.service';
       {
         path: '', component: HomeComponent, pathMatch: 'full',
       },
-      { path: ':id', component: EmployeeComponent, pathMatch: 'full', }
+      {
+        path: ':id', component: EmployeeComponent, pathMatch: 'full',
+        resolve: {
+          employee: EmployeeResolverService
+        }
+      },
+      {
+        path: 'resume/:id', component: ResumeComponent, resolve: {
+          employee: EmployeeResolverService
+        }
+      }
     ]),
     MaterialThemeModule,
     SharedModule
   ],
-  providers: [EmployeeCrudService, EmployeeHttpService]
+  exports: [RouterModule],
+  providers: [EmployeeCrudService, EmployeeHttpService, EmployeeResolverService]
 })
 export class EmployeesModule { }
