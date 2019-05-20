@@ -1,6 +1,9 @@
 <mat-list>
   <h3 mat-subheader>List of all employees</h3>
-  <mat-list-item *ngFor="let employee of list" [ngClass]="{'selected': selected === employee.id}" [routerLink]="['/employees',employee.id]" >
+  <mat-form-field class="example-full-width">
+    <input id="filter-by-input" matInput placeholder="Filter by: Name " (keyup)="filterBy($event)"/>
+  </mat-form-field>
+  <mat-list-item *ngFor="let employee of list | employeeFilter: filterByName" [ngClass]="{'selected': selected === employee.id}" [routerLink]="['/employees',employee.id]" >
     <h4 mat-line>{{employee.firstname}}</h4>
     <span class="spacer"></span>
     <span>
