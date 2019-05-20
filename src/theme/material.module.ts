@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatInputModule } from '@angular/material/input';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 /**
  * NgModule import
  */
@@ -14,7 +15,9 @@ import { NgModule } from '@angular/core';
 
 
 @NgModule({
-    imports: [MatButtonModule, MatToolbarModule, MatIconModule, MatListModule, MatTabsModule, MatInputModule],
-    exports: [MatButtonModule, MatToolbarModule, MatIconModule, MatListModule, MatTabsModule, MatInputModule]
+    imports: [MatButtonModule, MatToolbarModule, MatIconModule, MatListModule, MatTabsModule, MatInputModule,
+        MatCheckboxModule],
+    exports: [MatButtonModule, MatToolbarModule, MatIconModule, MatListModule, MatTabsModule, MatInputModule,
+        MatCheckboxModule]
 })
 export class MaterialThemeModule { }
