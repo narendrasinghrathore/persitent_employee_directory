@@ -1,24 +1,24 @@
 
 export interface Address {
-    street: string;
-    city: string;
-    zipcode: string;
+    street?: string;
+    city?: string;
+    zipcode?: string;
 }
 
 export interface Employee {
-    avatar:string;
+    avatar?:string;
     id: number;
-    firstname: string;
-    lastname: string;
-    email: string;
-    country: string;
-    address: Address;
-    phone: string;
-    website: string;
-    info: string;
-    projects: any[];
-    hobbies: any[];
-    notes: string;
+    firstname?: string;
+    lastname?: string;
+    email?: string;
+    country?: string;
+    address?: Address;
+    phone?: string;
+    website?: string;
+    info?: string;
+    projects?: any[];
+    hobbies?: any[];
+    notes?: string;
 }
 
 
