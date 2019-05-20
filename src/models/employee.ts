@@ -6,6 +6,7 @@ export interface Address {
 }
 
 export interface Employee {
+    avatar:string;
     id: number;
     firstname: string;
     lastname: string;

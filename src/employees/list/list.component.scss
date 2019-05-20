@@ -3,7 +3,7 @@
 }
 
 .selected{
-  background-color: #eeeeee;
+  background-color: #c1fdff;
 }
 
 .selected:hover{
@@ -12,4 +12,9 @@
 
 .example-full-width {
   width: 100%;
+}
+
+.controls{
+  display: flex;
+  flex-grow: 1;
 }

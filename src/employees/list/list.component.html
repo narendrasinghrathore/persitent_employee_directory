@@ -1,10 +1,15 @@
 <mat-list>
   <h3 mat-subheader>List of all employees</h3>
-  <mat-form-field class="example-full-width">
-    <input id="filter-by-input" matInput placeholder="Filter by: Name " (keyup)="filterBy($event)"/>
-  </mat-form-field>
-  <mat-checkbox [checked]="isChecked" (change)="sortByProp($event)">Sort By ID</mat-checkbox>
-  <mat-list-item *ngFor="let employee of list | employeeFilter: filterByName | sortBy : sortby" [ngClass]="{'selected': selected === employee.id}" [routerLink]="getRouterLink(employee)" >
+  <div class="controls">
+    <mat-form-field class="example-full-width">
+      <input id="filter-by-input" matInput placeholder="Filter by: Name " (keyup)="filterBy($event)" />
+    </mat-form-field>
+    <mat-checkbox [checked]="isChecked" (change)="sortByProp($event)">Sort By ID</mat-checkbox>
+  </div>
+
+
+  <mat-list-item *ngFor="let employee of list | employeeFilter: filterByName | sortBy : sortby"
+    [ngClass]="{'selected': selected === employee.id}" [routerLink]="getRouterLink(employee)">
     <h4 mat-line>{{employee.id}}. {{employee.firstname}}</h4>
     <span class="spacer"></span>
     <span>
