@@ -1,9 +1,8 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, OnDestroy } from '@angular/core';
 
 import { Employee } from '../../models/employee';
 import { ActivatedRoute } from '@angular/router';
-import { fromEvent } from 'rxjs';
-import { map, filter, debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-employee-list',
@@ -11,7 +10,7 @@ import { map, filter, debounceTime, distinctUntilChanged, switchMap, tap } from 
   styleUrls: ['./list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, OnDestroy {
 
   @Input()
   list: Employee[] = [];
@@ -24,12 +23,13 @@ export class ListComponent implements OnInit {
 
   isChecked: boolean;
 
+  subs: Subscription;
 
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(d => {
+    this.subs = this.route.paramMap.subscribe(d => {
       this.selected = +d.get('id');
       this.sortby = d.get('sortBy') ? d.get('sortBy') : null;
 
@@ -50,6 +50,10 @@ export class ListComponent implements OnInit {
     let params: any[] = ['/employees', emp.id];
     this.sortby ? params.push({ sortBy: this.sortby }) : null;
     return params;
+  }
+
+  ngOnDestroy() {
+    this.subs.unsubscribe();
   }
 
 }

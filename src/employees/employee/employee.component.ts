@@ -41,6 +41,12 @@ export class EmployeeComponent implements OnInit, OnDestroy {
     this.subs.add(s2);
   }
 
+  getRoute() {
+    let params: any = { id: this.employee.id };
+    params = this.sortBy ? { sortBy: this.sortBy, ...params } : { ...params };
+    return ['/employees', params];
+  }
+
   ngOnInit() {
 
   }
@@ -49,10 +55,6 @@ export class EmployeeComponent implements OnInit, OnDestroy {
     this.subs.unsubscribe();
   }
 
-  getRoute() {
-    let params: any = { id: this.employee.id };
-    params =this.sortBy ? { sortBy: this.sortBy , ...params } : {...params};
-    return ['/employees',  params ];
-  }
+
 
 }
