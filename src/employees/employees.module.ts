@@ -11,6 +11,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeHttpService } from './services/employee-http.service';
 import { ResumeComponent } from './resume/resume.component';
 import { EmployeeResolverService } from './services/employee-resolver.service';
+import { EmployeeFilterPipe } from './services/employee-filter.pipe';
 
 /**
  * Theme import
@@ -18,7 +19,7 @@ import { EmployeeResolverService } from './services/employee-resolver.service';
 
 
 @NgModule({
-  declarations: [HomeComponent, ListComponent, EmployeeComponent, ResumeComponent],
+  declarations: [HomeComponent, ListComponent, EmployeeComponent, ResumeComponent, EmployeeFilterPipe],
   imports: [
     CommonModule,
     HttpClientModule,
