@@ -19,6 +19,8 @@ export class ResumeComponent implements OnInit {
 
   fullname: string;
 
+  sortBy: string;
+
   constructor(private route: ActivatedRoute) {
     this.getEmployeeData(route);
   }
@@ -32,8 +34,19 @@ export class ResumeComponent implements OnInit {
         this.fullname = `${this.employee.firstname} ${this.employee.lastname}`
         this.header = `Resume of ${this.fullname}`;
       });
+
+
+    const s2 = route.paramMap.pipe(take(1)).subscribe((data) => {
+      this.sortBy = data.get('sortBy');
+    });
   }
 
   ngOnInit() { }
+
+  getRoute() {
+    let params: any = ['/employees', this.employee.id];
+    this.sortBy ? params.push({ sortBy: this.sortBy }) : null;
+    return params;
+  }
 
 }

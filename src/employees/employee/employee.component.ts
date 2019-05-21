@@ -55,6 +55,12 @@ export class EmployeeComponent implements OnInit, OnDestroy {
     this.subs.unsubscribe();
   }
 
+  goToResume() {
+    let route: any[] = ['/employees/resume', this.employee.id];
+    this.sortBy ? route.push({ sortBy: this.sortBy }) : null;
+    return route;
+  }
+
 
 
 }
